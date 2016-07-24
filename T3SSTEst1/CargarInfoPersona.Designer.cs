@@ -1,6 +1,6 @@
 ﻿namespace T3SSTEst1
 {
-    partial class CapturaPersonas
+    partial class CargarInfoPersona
     {
         /// <summary>
         /// Required designer variable.
@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnVerLista = new System.Windows.Forms.Button();
-            this.cmbGenero = new System.Windows.Forms.ComboBox();
-            this.cmbProvincia = new System.Windows.Forms.ComboBox();
             this.txtApellido2 = new System.Windows.Forms.TextBox();
             this.txtApellido1 = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -42,21 +39,22 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnGuardarPersona = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dgvListaPersonas = new System.Windows.Forms.DataGridView();
-            this.btnAlmacenarEnBD = new System.Windows.Forms.Button();
-            this.btnVerPersona = new System.Windows.Forms.Button();
+            this.txtConsultaCedula = new System.Windows.Forms.MaskedTextBox();
+            this.btnConsultar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.txtProvincia = new System.Windows.Forms.TextBox();
+            this.txtGenero = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaPersonas)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnVerLista);
-            this.panel1.Controls.Add(this.cmbGenero);
-            this.panel1.Controls.Add(this.cmbProvincia);
+            this.panel1.Controls.Add(this.txtGenero);
+            this.panel1.Controls.Add(this.txtProvincia);
+            this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Controls.Add(this.txtApellido2);
             this.panel1.Controls.Add(this.txtApellido1);
             this.panel1.Controls.Add(this.txtNombre);
@@ -67,66 +65,43 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btnGuardarPersona);
-            this.panel1.Location = new System.Drawing.Point(13, 13);
+            this.panel1.Location = new System.Drawing.Point(12, 120);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(307, 296);
-            this.panel1.TabIndex = 0;
-            // 
-            // btnVerLista
-            // 
-            this.btnVerLista.Location = new System.Drawing.Point(3, 256);
-            this.btnVerLista.Name = "btnVerLista";
-            this.btnVerLista.Size = new System.Drawing.Size(301, 37);
-            this.btnVerLista.TabIndex = 7;
-            this.btnVerLista.Text = "Ver Lista de Personas";
-            this.btnVerLista.UseVisualStyleBackColor = true;
-            this.btnVerLista.Click += new System.EventHandler(this.btnVerLista_Click);
-            // 
-            // cmbGenero
-            // 
-            this.cmbGenero.FormattingEnabled = true;
-            this.cmbGenero.Location = new System.Drawing.Point(162, 166);
-            this.cmbGenero.Name = "cmbGenero";
-            this.cmbGenero.Size = new System.Drawing.Size(142, 21);
-            this.cmbGenero.TabIndex = 5;
-            // 
-            // cmbProvincia
-            // 
-            this.cmbProvincia.FormattingEnabled = true;
-            this.cmbProvincia.Location = new System.Drawing.Point(162, 138);
-            this.cmbProvincia.Name = "cmbProvincia";
-            this.cmbProvincia.Size = new System.Drawing.Size(142, 21);
-            this.cmbProvincia.TabIndex = 4;
+            this.panel1.Size = new System.Drawing.Size(307, 278);
+            this.panel1.TabIndex = 1;
             // 
             // txtApellido2
             // 
             this.txtApellido2.Location = new System.Drawing.Point(162, 110);
             this.txtApellido2.Name = "txtApellido2";
+            this.txtApellido2.ReadOnly = true;
             this.txtApellido2.Size = new System.Drawing.Size(142, 20);
-            this.txtApellido2.TabIndex = 3;
+            this.txtApellido2.TabIndex = 5;
             // 
             // txtApellido1
             // 
             this.txtApellido1.Location = new System.Drawing.Point(162, 82);
             this.txtApellido1.Name = "txtApellido1";
+            this.txtApellido1.ReadOnly = true;
             this.txtApellido1.Size = new System.Drawing.Size(142, 20);
-            this.txtApellido1.TabIndex = 2;
+            this.txtApellido1.TabIndex = 4;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(162, 54);
             this.txtNombre.Name = "txtNombre";
+            this.txtNombre.ReadOnly = true;
             this.txtNombre.Size = new System.Drawing.Size(142, 20);
-            this.txtNombre.TabIndex = 1;
+            this.txtNombre.TabIndex = 3;
             // 
             // txtCedula
             // 
             this.txtCedula.Location = new System.Drawing.Point(162, 26);
             this.txtCedula.Mask = "00-0000-0000";
             this.txtCedula.Name = "txtCedula";
+            this.txtCedula.ReadOnly = true;
             this.txtCedula.Size = new System.Drawing.Size(142, 20);
-            this.txtCedula.TabIndex = 0;
+            this.txtCedula.TabIndex = 2;
             // 
             // label6
             // 
@@ -182,72 +157,85 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Nombre";
             // 
-            // btnGuardarPersona
+            // label7
             // 
-            this.btnGuardarPersona.Location = new System.Drawing.Point(3, 213);
-            this.btnGuardarPersona.Name = "btnGuardarPersona";
-            this.btnGuardarPersona.Size = new System.Drawing.Size(301, 37);
-            this.btnGuardarPersona.TabIndex = 6;
-            this.btnGuardarPersona.Text = "Guardar Persona en Lista";
-            this.btnGuardarPersona.UseVisualStyleBackColor = true;
-            this.btnGuardarPersona.Click += new System.EventHandler(this.btnGuardarPersona_Click);
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(15, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(88, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Ingrese la cedula";
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnVerPersona);
-            this.panel2.Controls.Add(this.dgvListaPersonas);
-            this.panel2.Controls.Add(this.btnAlmacenarEnBD);
-            this.panel2.Location = new System.Drawing.Point(327, 13);
+            this.panel2.Controls.Add(this.btnConsultar);
+            this.panel2.Controls.Add(this.txtConsultaCedula);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Location = new System.Drawing.Point(12, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(264, 296);
-            this.panel2.TabIndex = 1;
+            this.panel2.Size = new System.Drawing.Size(304, 102);
+            this.panel2.TabIndex = 0;
             // 
-            // dgvListaPersonas
+            // txtConsultaCedula
             // 
-            this.dgvListaPersonas.AllowUserToAddRows = false;
-            this.dgvListaPersonas.AllowUserToDeleteRows = false;
-            this.dgvListaPersonas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaPersonas.Location = new System.Drawing.Point(4, 4);
-            this.dgvListaPersonas.Name = "dgvListaPersonas";
-            this.dgvListaPersonas.ReadOnly = true;
-            this.dgvListaPersonas.Size = new System.Drawing.Size(257, 192);
-            this.dgvListaPersonas.TabIndex = 1;
+            this.txtConsultaCedula.Location = new System.Drawing.Point(159, 13);
+            this.txtConsultaCedula.Mask = "00-0000-0000";
+            this.txtConsultaCedula.Name = "txtConsultaCedula";
+            this.txtConsultaCedula.Size = new System.Drawing.Size(142, 20);
+            this.txtConsultaCedula.TabIndex = 0;
+            this.txtConsultaCedula.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtConsultaCedula_MaskInputRejected);
+            this.txtConsultaCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtConsultaCedula_KeyPress);
             // 
-            // btnAlmacenarEnBD
+            // btnConsultar
             // 
-            this.btnAlmacenarEnBD.Location = new System.Drawing.Point(3, 256);
-            this.btnAlmacenarEnBD.Name = "btnAlmacenarEnBD";
-            this.btnAlmacenarEnBD.Size = new System.Drawing.Size(258, 37);
-            this.btnAlmacenarEnBD.TabIndex = 8;
-            this.btnAlmacenarEnBD.Text = "Almacenar Lista en BD";
-            this.btnAlmacenarEnBD.UseVisualStyleBackColor = true;
-            this.btnAlmacenarEnBD.Click += new System.EventHandler(this.btnAlmacenarEnBD_Click);
+            this.btnConsultar.Location = new System.Drawing.Point(3, 65);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(298, 34);
+            this.btnConsultar.TabIndex = 1;
+            this.btnConsultar.Text = "Consultar Informacion";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
-            // btnVerPersona
+            // btnSalir
             // 
-            this.btnVerPersona.Location = new System.Drawing.Point(4, 213);
-            this.btnVerPersona.Name = "btnVerPersona";
-            this.btnVerPersona.Size = new System.Drawing.Size(257, 37);
-            this.btnVerPersona.TabIndex = 9;
-            this.btnVerPersona.Text = "Ver Informacion de Persona";
-            this.btnVerPersona.UseVisualStyleBackColor = true;
-            this.btnVerPersona.Click += new System.EventHandler(this.btnVerPersona_Click);
+            this.btnSalir.Location = new System.Drawing.Point(3, 226);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(298, 49);
+            this.btnSalir.TabIndex = 8;
+            this.btnSalir.Text = "Salir del formulario";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // CapturaPersonas
+            // txtProvincia
+            // 
+            this.txtProvincia.Location = new System.Drawing.Point(162, 141);
+            this.txtProvincia.Name = "txtProvincia";
+            this.txtProvincia.ReadOnly = true;
+            this.txtProvincia.Size = new System.Drawing.Size(142, 20);
+            this.txtProvincia.TabIndex = 6;
+            // 
+            // txtGenero
+            // 
+            this.txtGenero.Location = new System.Drawing.Point(162, 169);
+            this.txtGenero.Name = "txtGenero";
+            this.txtGenero.ReadOnly = true;
+            this.txtGenero.Size = new System.Drawing.Size(142, 20);
+            this.txtGenero.TabIndex = 7;
+            // 
+            // CargarInfoPersona
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(603, 321);
+            this.ClientSize = new System.Drawing.Size(331, 410);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "CapturaPersonas";
-            this.Text = "Informacion de Personas";
-            this.Load += new System.EventHandler(this.CapturaPersonas_Load);
+            this.Name = "CargarInfoPersona";
+            this.Text = "Ver Informacion de Persona";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CargarInfoPersona_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaPersonas)).EndInit();
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -255,24 +243,22 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnGuardarPersona;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnAlmacenarEnBD;
+        private System.Windows.Forms.TextBox txtApellido2;
+        private System.Windows.Forms.TextBox txtApellido1;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.MaskedTextBox txtCedula;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbGenero;
-        private System.Windows.Forms.ComboBox cmbProvincia;
-        private System.Windows.Forms.TextBox txtApellido2;
-        private System.Windows.Forms.TextBox txtApellido1;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.MaskedTextBox txtCedula;
-        private System.Windows.Forms.DataGridView dgvListaPersonas;
-        private System.Windows.Forms.Button btnVerLista;
-        private System.Windows.Forms.Button btnVerPersona;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.MaskedTextBox txtConsultaCedula;
+        private System.Windows.Forms.Button btnConsultar;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.TextBox txtGenero;
+        private System.Windows.Forms.TextBox txtProvincia;
     }
 }
-

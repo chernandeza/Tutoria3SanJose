@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
 
 namespace LibreriaT3SJ
@@ -56,6 +52,11 @@ namespace LibreriaT3SJ
         {
             get { return _genero; }
             set { _genero = value; }
+        }
+
+        public Persona()
+        {
+            this._cedula = "0";
         }
     }
 

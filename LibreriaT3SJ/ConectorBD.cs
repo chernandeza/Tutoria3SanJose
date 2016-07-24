@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 
 namespace LibreriaT3SJ
@@ -11,8 +7,8 @@ namespace LibreriaT3SJ
     {
         #region Class Attributes
         private SqlConnectionStringBuilder ConnectionStr;
-        private SqlConnection DBConnection;
-        private SqlCommand SQLcmd;
+        private SqlConnection DBConnection; //Conexion a BD
+        private SqlCommand SQLcmd; //Comando SQL a ejecutar en BD
         private EvtLogWriter elw;
         #endregion
 
@@ -43,7 +39,7 @@ namespace LibreriaT3SJ
                 DBConnection.Open();
                 foreach (Persona item in lp.ListaP.Values)
                 {
-                    String commando = "INSERT INTO Persona (cedula, nombre, apellido1, apellido2, provincia, genero) ";
+                    String commando = "INSERT INTO Persona (cedula, nombre, apellido1, apellido2, provincia, genero, autorizada) ";
                     commando += "VALUES ('";
                     commando += item.Cedula;
                     commando += "', '";
@@ -56,7 +52,8 @@ namespace LibreriaT3SJ
                     commando += (int)item.Provincia1;
                     commando += ", '";
                     commando += item.Genero.ToString();
-                    commando += "');";
+                    commando += "', 0";
+                    commando += ");";
                     SQLcmd = new SqlCommand(commando, DBConnection);
                     elw.writeWarning(commando);
                     SQLcmd.ExecuteNonQuery();
@@ -64,6 +61,67 @@ namespace LibreriaT3SJ
             }
             catch (Exception)
             {
+                throw;
+            }
+            finally
+            {
+                DBConnection.Close();
+            }
+        }
+
+        public Persona CargarInformacionPersona(String cedula)
+        {
+            try
+            {
+                Persona P = new Persona();
+                DBConnection.Open();
+                String comando = "SELECT nombre, apellido1, apellido2, provincia, genero";
+                comando += " FROM persona WHERE cedula='";
+                comando += cedula;
+                comando += "';";
+                //elw.writeWarning(comando);
+                SqlDataReader lectorBD;
+                using (DBConnection = new SqlConnection(ConnectionStr.ConnectionString))
+                {
+                    using (SQLcmd = new SqlCommand(comando, DBConnection))
+                    {
+                        DBConnection.Open();
+                        lectorBD = SQLcmd.ExecuteReader();
+                        if (lectorBD.HasRows)
+                        {
+                            lectorBD.Read();
+                            P.Cedula = cedula;
+                            P.Nombre = lectorBD.GetString(0);
+                            P.Apellido1 = lectorBD.GetString(1);
+                            P.Apellido2 = lectorBD.GetString(2);
+                            //elw.writeWarning(lectorBD.GetInt16(3).ToString());
+                            P.Provincia1 = (Provincia)Enum.ToObject(typeof(Provincia), lectorBD.GetInt16(3));
+                            P.Genero = (Genero)Enum.Parse(typeof(Genero), lectorBD.GetString(4));
+                        }
+                        else
+                        {
+                            return new Persona();
+                        }
+                        return P;
+                    }
+                }
+                /*El lectorBD lee fila por fila. Para cada fila trae los datos indicados en el SELECT.
+                  El select de este metodo retorna:
+                    - String nombre,
+                    - String apellido1, 
+                    - String apellido2,
+                    - int provincia
+                    - String Genero
+                    Entonces para el data reader esto viene en un arreglo asi:
+                    |--------|-----------|-----------|-----------|--------|
+                    | nombre | apellido1 | apellido2 | provincia | genero | 
+                    |--------|-----------|-----------|-----------|--------|
+                        0           1           2           3          4
+                */
+            }
+            catch (Exception E)
+            {
+                elw.writeError(E.Message);
                 throw;
             }
             finally

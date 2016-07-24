@@ -36,6 +36,9 @@ namespace T3SSTEst1
             cmbGenero.SelectedIndex = 2;
             cmbProvincia.SelectedIndex = 0;
             List<Persona> bindList = new List<Persona>();
+            /*Obtiene los valores del diccionario de personas y
+            los agrega a una lista generica. Esto porque el datagridview
+            solamente puede hacer binding con una lista*/
             foreach (Persona item in lista1.ListaP.Values)
             {
                 bindList.Add(item);
@@ -76,6 +79,17 @@ namespace T3SSTEst1
             this.Enabled = false;
             
             if (vp.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                this.Enabled = true;
+            else
+                this.Enabled = false;
+        }
+
+        private void btnVerPersona_Click(object sender, EventArgs e)
+        {
+            CargarInfoPersona ci = new CargarInfoPersona();
+            this.Enabled = false;
+
+            if (ci.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 this.Enabled = true;
             else
                 this.Enabled = false;

@@ -30,20 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.t3SJTest1DataSet = new T3SSTEst1.T3SJTest1DataSet();
             this.personaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.t3SJTest1DataSet = new T3SSTEst1.T3SJTest1DataSet();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.personaTableAdapter = new T3SSTEst1.T3SJTest1DataSetTableAdapters.PersonaTableAdapter();
             this.cedulaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellido1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellido2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.provinciaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.generoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.autorizadaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.t3SJTest1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.t3SJTest1DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -57,14 +55,22 @@
             this.nombreDataGridViewTextBoxColumn,
             this.apellido1DataGridViewTextBoxColumn,
             this.apellido2DataGridViewTextBoxColumn,
-            this.provinciaDataGridViewTextBoxColumn,
-            this.generoDataGridViewTextBoxColumn,
             this.autorizadaDataGridViewCheckBoxColumn});
             this.dataGridView1.DataSource = this.personaBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(13, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(648, 265);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // personaBindingSource
+            // 
+            this.personaBindingSource.DataMember = "Persona";
+            this.personaBindingSource.DataSource = this.t3SJTest1DataSet;
+            // 
+            // t3SJTest1DataSet
+            // 
+            this.t3SJTest1DataSet.DataSetName = "T3SJTest1DataSet";
+            this.t3SJTest1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnGuardar
             // 
@@ -76,64 +82,49 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // t3SJTest1DataSet
-            // 
-            this.t3SJTest1DataSet.DataSetName = "T3SJTest1DataSet";
-            this.t3SJTest1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // personaBindingSource
-            // 
-            this.personaBindingSource.DataMember = "Persona";
-            this.personaBindingSource.DataSource = this.t3SJTest1DataSet;
-            // 
             // personaTableAdapter
             // 
             this.personaTableAdapter.ClearBeforeFill = true;
             // 
             // cedulaDataGridViewTextBoxColumn
             // 
+            this.cedulaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.cedulaDataGridViewTextBoxColumn.DataPropertyName = "cedula";
             this.cedulaDataGridViewTextBoxColumn.HeaderText = "Cedula";
             this.cedulaDataGridViewTextBoxColumn.Name = "cedulaDataGridViewTextBoxColumn";
             this.cedulaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cedulaDataGridViewTextBoxColumn.Width = 65;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
+            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
             this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreDataGridViewTextBoxColumn.Width = 69;
             // 
             // apellido1DataGridViewTextBoxColumn
             // 
+            this.apellido1DataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.apellido1DataGridViewTextBoxColumn.DataPropertyName = "apellido1";
             this.apellido1DataGridViewTextBoxColumn.HeaderText = "Primer Apellido";
             this.apellido1DataGridViewTextBoxColumn.Name = "apellido1DataGridViewTextBoxColumn";
             this.apellido1DataGridViewTextBoxColumn.ReadOnly = true;
+            this.apellido1DataGridViewTextBoxColumn.Width = 101;
             // 
             // apellido2DataGridViewTextBoxColumn
             // 
+            this.apellido2DataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.apellido2DataGridViewTextBoxColumn.DataPropertyName = "apellido2";
             this.apellido2DataGridViewTextBoxColumn.HeaderText = "Segundo Apellido";
             this.apellido2DataGridViewTextBoxColumn.Name = "apellido2DataGridViewTextBoxColumn";
             this.apellido2DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // provinciaDataGridViewTextBoxColumn
-            // 
-            this.provinciaDataGridViewTextBoxColumn.DataPropertyName = "provincia";
-            this.provinciaDataGridViewTextBoxColumn.HeaderText = "Provincia";
-            this.provinciaDataGridViewTextBoxColumn.Name = "provinciaDataGridViewTextBoxColumn";
-            this.provinciaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // generoDataGridViewTextBoxColumn
-            // 
-            this.generoDataGridViewTextBoxColumn.DataPropertyName = "genero";
-            this.generoDataGridViewTextBoxColumn.HeaderText = "Genero";
-            this.generoDataGridViewTextBoxColumn.Name = "generoDataGridViewTextBoxColumn";
-            this.generoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.apellido2DataGridViewTextBoxColumn.Width = 105;
             // 
             // autorizadaDataGridViewCheckBoxColumn
             // 
+            this.autorizadaDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.autorizadaDataGridViewCheckBoxColumn.DataPropertyName = "autorizada";
             this.autorizadaDataGridViewCheckBoxColumn.HeaderText = "Autorizado";
             this.autorizadaDataGridViewCheckBoxColumn.Name = "autorizadaDataGridViewCheckBoxColumn";
@@ -151,8 +142,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VisualizarPersonas_FormClosing);
             this.Load += new System.EventHandler(this.VisualizarPersonas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.t3SJTest1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.personaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.t3SJTest1DataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -168,8 +159,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellido1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellido2DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn provinciaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn generoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn autorizadaDataGridViewCheckBoxColumn;
     }
 }

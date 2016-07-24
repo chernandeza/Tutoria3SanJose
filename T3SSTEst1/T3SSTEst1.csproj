@@ -52,6 +52,12 @@
     <Compile Include="CapturaPersonas.Designer.cs">
       <DependentUpon>CapturaPersonas.cs</DependentUpon>
     </Compile>
+    <Compile Include="CargarInfoPersona.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CargarInfoPersona.Designer.cs">
+      <DependentUpon>CargarInfoPersona.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="T3SJTest1DataSet.Designer.cs">
@@ -67,6 +73,9 @@
     </Compile>
     <EmbeddedResource Include="CapturaPersonas.resx">
       <DependentUpon>CapturaPersonas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CargarInfoPersona.resx">
+      <DependentUpon>CargarInfoPersona.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
