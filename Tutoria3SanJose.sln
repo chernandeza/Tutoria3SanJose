@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "T3SSTEst1", "T3SSTEst1\T3SS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibreriaT3SJ", "LibreriaT3SJ\LibreriaT3SJ.csproj", "{15B4E2B9-8CFD-46F8-B0D9-4762BE1AE9B1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E53FAF4A-EF90-44D6-B747-69A8558D9F5F}"
+	ProjectSection(SolutionItems) = preProject
+		ScriptBD.sql = ScriptBD.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
